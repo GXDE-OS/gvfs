@@ -1,0 +1,18 @@
+#!/bin/sh
+set -e
+unset TMPDIR
+
+# Ubuntu runs autopkgtest in cloud images as a root-equivalent user, so
+# this test works there.
+#
+# On Debian, more work will be needed to add a user, configure sudo
+# permissions, and switch to that user, either in autopkgtest (see
+# #983432, #906424) or in this test. For now, skip it if the necessary
+# setup has not been done.
+
+if ! sudo -n true; then
+    echo "SKIP: Unable to run sudo"
+    exit 77
+fi
+
+exec sudo -n test/gvfs-testbed test/gvfs-test

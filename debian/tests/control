@@ -1,0 +1,16 @@
+Tests: integration
+Depends: apache2,
+         apache2-dev,
+         dbus,
+         gir1.2-umockdev-1.0,
+         libglib2.0-bin,
+         openssh-client,
+         polkitd,
+         python3-dbus,
+         python3-gi,
+         python3-twisted,
+         samba,
+         sudo,
+         umockdev (>= 0.2.9),
+         @
+Restrictions: allow-stderr isolation-machine skippable
